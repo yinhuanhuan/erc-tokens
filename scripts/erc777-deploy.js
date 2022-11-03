@@ -3,17 +3,19 @@ const hre = require("hardhat")
 async function main() {
   const NAME = 'Cat'
   const SYMBOL = 'CAT'
+  const DEFAULT_OPERATORS = [process.env.OWNER_ADDRESS]
   const INITIAL_SUPPLY = 10 ** 8
   const OWNER = process.env.OWNER_ADDRESS
 
-  const CatERC20 = await hre.ethers.getContractFactory("CatERC20")
-  const catERC20 = await CatERC20.deploy(NAME, SYMBOL, INITIAL_SUPPLY, OWNER)
+  const CatERC777 = await hre.ethers.getContractFactory("CatERC777")
+  const catERC777 = await CatERC777.deploy(NAME, SYMBOL, DEFAULT_OPERATORS, INITIAL_SUPPLY, OWNER)
 
-  await catERC20.deployed()
+  await catERC777.deployed()
 
-  console.log(`Created ERC20 Token and deployed to ${catERC20.address}`)
+  console.log(`Created ERC777 Token and deployed to ${catERC777.address}`)
   console.log(`NAME: ${NAME}`)
   console.log(`SYMBOL: ${SYMBOL}`)
+  console.log(`DEFAULT_OPERATORS: ${DEFAULT_OPERATORS}`)
   console.log(`INITIAL_SUPPLY: ${INITIAL_SUPPLY}`)
   console.log(`OWNER: ${OWNER}`)
 }
