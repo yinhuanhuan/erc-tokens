@@ -13,7 +13,7 @@ async function main() {
   console.log(`Created ERC721 Token and deployed to ${catERC721.address}`)
   console.log(`NAME: ${NAME}`)
   console.log(`SYMBOL: ${SYMBOL}`)
-  console.log(`baseTokenURI: ${BASE_TOKEN_URI}`)
+  console.log(`BASE_TOKEN_URI: ${BASE_TOKEN_URI}`)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
